@@ -1,0 +1,21 @@
+{
+  "name": "TeamMinion",
+  "description": "Fat Free Reservation Site",
+  "authors": [
+    {
+      "name": "tobygoetz",
+      "email": "tngoetz@aol.com"
+    },
+    {
+      "name": "theZalmanian",
+      "email": "syntaxwarden@protonmail.com"
+    },
+    {
+      "name": "theLeeroy",
+      "email": "hegwood.leeroy@student.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
