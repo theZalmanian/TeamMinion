@@ -19,10 +19,16 @@ require_once('vendor/autoload.php');
 //Instantiate Fat-Free framework (f3)
 $f3 = Base::instance(); //static method
 
-//Define a default route
-$f3->route('GET /', function () { //instance method
+// Default route
+$f3->route('GET /', function ($f3) { //instance method
     $view = new Template();
     echo $view->render('views/home.html');
+});
+
+// availability route
+$f3->route('GET|POST /availability', function ($f3) { //instance method
+    $view = new Template();
+    echo $view->render('views/availability.html');
 });
 
 //Run Fat-Free
