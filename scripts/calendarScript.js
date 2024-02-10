@@ -51,6 +51,13 @@ function getMonth()
     // Resets the calendar
     calendar.innerHTML = '';
 
+    for (let j = 0; j < weekdays.length; j++) {
+        const daysOfWeek = document.createElement('div');
+        daysOfWeek.classList.add('daysOfWeek');
+        daysOfWeek.innerText = weekdays[j].substring(0, 2);
+        calendar.appendChild(daysOfWeek);
+    }
+
 
     // Creates all the necessary day boxes for the calendar
     for (let i = 1; i <= paddingDays + daysInMonth; i++) {

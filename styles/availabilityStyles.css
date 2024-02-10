@@ -33,7 +33,7 @@ button {
     background-color:#92a1d1;
 }
 #container {
-    width: 770px;
+    width: 100%;
 }
 #weekdays {
     width: 100%;
@@ -41,7 +41,8 @@ button {
     color: #247BA0;
 }
 #weekdays div {
-    width: 100px;
+    text-align: center;
+    width: 15%;
     padding: 10px;
 }
 #calendar {
@@ -50,14 +51,29 @@ button {
     display: flex;
     flex-wrap: wrap;
 }
-.day {
-    width: 100px;
-    padding: 10px;
-    height: 100px;
+/*.daysOfWeek {*/
+/*    font-weight: bolder;*/
+/*    width: 11.5%;*/
+/*    padding: 1%;*/
+/*    height: 12.3%;*/
+/*    cursor: pointer;*/
+/*    box-sizing: border-box;*/
+/*    background-color: white;*/
+/*    margin: 1%;*/
+/*    box-shadow: 0 0 3px #CBD4C2;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: space-between;*/
+
+/*}*/
+.day, .daysOfWeek {
+    width: 11.5%;
+    padding: 1%;
+    height: 12.3%;
     cursor: pointer;
     box-sizing: border-box;
     background-color: white;
-    margin: 5px;
+    margin: 1%;
     box-shadow: 0 0 3px #CBD4C2;
     display: flex;
     flex-direction: column;
