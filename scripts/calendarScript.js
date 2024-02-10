@@ -1,41 +1,25 @@
-let nav = 0;
+let monthSelected = 0;    // Keep track of Current Month (Month plus nav = month displayed)
 let clicked  = null;
+
+// Initializes Events
 let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
 
 const calendar = document.getElementById('calendar');
-const newEventModal = document.getElementById('newEventModal');
-const deleteEventModal = document.getElementById('deleteEventModal');
-const backDrop = document.getElementById('modalBackDrop');
-const eventTitleInput = document.getElementById('eventTitleInput')
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', ]
 
-function openModal(date) {
-    clicked = date;
-    const eventForDay = events.find(e => e.date === clicked);
+function getMonth()
+{
+    //Date is an Array and Current Month is index 0
+    const dateObject = new Date();
 
-    if (eventForDay) {
-        document.getElementById('eventText').innerText = eventForDay.title;
-        deleteEventModal.style.display = 'block';
-    } else {
-        newEventModal.style.display = 'block';
+
+    if (monthSelected !== 0) {
+        dateObject.setMonth(new Date().getMonth() + monthSelected);
     }
 
-    backDrop.style.display = 'block';
-}
-
-function load() {
-    const dt = new Date();
-
-    if (nav !== 0) {
-        dt.setMonth(new Date().getMonth() + nav);
-    }
-
-    console.log(dt);
-
-    const day = dt.getDate();
-    //Date is an Array and Jan. is index 0
-    const month = dt.getMonth();
-    const year = dt.getFullYear();
+    const day = dateObject.getDate();
+    const month = dateObject.getMonth();
+    const year = dateObject.getFullYear();
 
     /*  Finds the first day of the month */
     const firstDayOfMonth = new Date(year, month, 1);
@@ -54,99 +38,62 @@ function load() {
             day: 'numeric'
         });
 
+    /*Padding days = days of last month before this month
+    * Splits dateString and returns array['friday', '1/1/2023']
+    * array[0] is then tested against weekdays and a number is
+    * returned*/
     const paddingDays = weekdays.indexOf(dateString.split(', ') [0]);
 
     // Displays current month and year at the top of Calendar
     document.getElementById('monthDisplay').innerText =
-        `${dt.toLocaleDateString('en-us', {month: 'long'} )} ${year}`;
+        `${dateObject.toLocaleDateString('en-us', {month: 'long'} )} ${year}`;
 
     // Resets the calendar
     calendar.innerHTML = '';
-    
-    
+
+
     // Creates all the necessary day boxes for the calendar
     for (let i = 1; i <= paddingDays + daysInMonth; i++) {
 
+        // Div's are created for each day and class="day" is added
         const daySquare = document.createElement('div');
         daySquare.classList.add('day');
-        const dayString = `${month + 1}/${i - paddingDays}/${year}`;
 
         if (i > paddingDays) {
 
+            //Returns the number of each day in month
             daySquare.innerText = i - paddingDays;
-            const eventForDay = events.find(e => e.date === dayString);
+            daySquare.addEventListener('cick', () => console.log('click'))
+            // const eventForDay = events.find(e => e.date === dayString);
 
-            if (eventForDay) {
-                const eventDiv = document.createElement('div');
-                eventDiv.classList.add('event');
-                eventDiv.innerText = eventForDay.title;
-                daySquare.appendChild(eventDiv);
-            }
-
+            // This is where we want to call a function to display current availability
             daySquare.addEventListener(
-                'click',                          
-                () => openModal(dayString)
-            );
-            
+                'click',
+                () => console.log('click'));
+
         } else {
+            // All daySquares before first day of month now have class="padding"
             daySquare.classList.add('padding');
         }
+
+        // Draw boxes for each daySquare
         calendar.appendChild(daySquare);
-
     }
 }
 
-function closeModal() {
-    eventTitleInput.classList.remove('error');
-    newEventModal.style.display = 'none';
-    deleteEventModal.style.display = 'none';
-    backDrop.style.display = 'none';
-    eventTitleInput.value = '';
-    clicked = null;
-    load();
-}
 
-function saveEvent() {
-    if (eventTitleInput.value) {
-        eventTitleInput.classList.remove('error');
-        events.push({
-            date: clicked,
-            title: eventTitleInput.value,
-        });
-
-        localStorage.setItem('events', JSON.stringify(events));
-        closeModal();
-    } else {
-        eventTitleInput.classList.add('error');
-    }
-    
-}
-
-function deleteEvent() {
-    events = events.filter(e => e.date !== clicked);
-    localStorage.setItem('events', JSON.stringify(events));
-    closeModal();
-}
-
-/*
-Increments and decrements the month at the top of the calendar
- */
-function initButtons() {
+// Increments and decrements the month at the top of the calendar
+function calendarButtons()
+{
     document.getElementById('nextButton').addEventListener('click', () => {
-        nav++;
-        load();
+        monthSelected++;
+        getMonth();
     });
     document.getElementById('backButton').addEventListener('click', () => {
-        nav--;
-        load();
+        monthSelected--;
+        getMonth();
     });
-
-    document.getElementById('saveButton').addEventListener('click', saveEvent);
-    document.getElementById('cancelButton').addEventListener('click', closeModal);
-    document.getElementById('deleteButton').addEventListener('click', deleteEvent);
-    document.getElementById('closeButton').addEventListener('click', closeModal);
-
 }
 
-initButtons();
-load();
+calendarButtons();
+getMonth();
