@@ -48,7 +48,7 @@ Description:
                         Services
                     </a>
                     <a class="nav-link" href="signIn">
-                        <button type="button" class="btn btn-primary">Sign In</button>
+                        Sign In
                     </a>
                 </div>
             </div>
