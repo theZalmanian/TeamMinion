@@ -25,10 +25,22 @@ $f3->route('GET /', function ($f3) { //instance method
     echo $view->render('views/home.html');
 });
 
+// home route
+$f3->route('GET|POST /home', function ($f3) { //instance method
+    $view = new Template();
+    echo $view->render('views/home.html');
+});
+
 // availability route
 $f3->route('GET|POST /availability', function ($f3) { //instance method
     $view = new Template();
     echo $view->render('views/availability.html');
+});
+
+// signIn route
+$f3->route('GET|POST /signIn', function ($f3) { //instance method
+    $view = new Template();
+    echo $view->render('views/signIn.php');
 });
 
 //Run Fat-Free
