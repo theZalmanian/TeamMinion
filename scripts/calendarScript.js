@@ -38,10 +38,12 @@ function getMonth()
             day: 'numeric'
         });
 
-    /*Padding days = days of last month before this month
+    /*
+    * Padding days = days of last month before this month
     * Splits dateString and returns array['friday', '1/1/2023']
     * array[0] is then tested against weekdays and a number is
-    * returned*/
+    * returned
+    * */
     const paddingDays = weekdays.indexOf(dateString.split(', ') [0]);
 
     // Displays current month and year at the top of Calendar

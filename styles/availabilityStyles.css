@@ -91,3 +91,25 @@ button {
     background-color: #FFFCFF !important;
     box-shadow: none !important;
 }
+
+/*
+Check Out Box
+ */
+
+#checkOutBox {
+    position: sticky;
+    top:0;
+
+}
+
+#hairCutPic {
+    filter: grayscale(100%);
+}
+
+#massageDisplay {
+    background-color: white;
+}
+
+.times {
+    width: 130px;
+}

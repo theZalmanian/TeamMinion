@@ -8,7 +8,7 @@ Description:
 :root {
     --primary-color: #FFC300; /* naples yellow */
     --primary-color-variant: #FFE15C; /* mikado yellow */
-    --form-color: #dec014
+    --white: white;
 }
 
 /* general styles */
@@ -20,14 +20,3 @@ body, header, footer {
 main {
     background-color: var(--primary-color-variant);
 }
-
-form, #form{
-    background-color: var(--form-color);
-    accent-color: var(--form-color);
-}
-
-img{
-    max-width:600px;
-    max-height:400px;
-}
-
