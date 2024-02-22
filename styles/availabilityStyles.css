@@ -40,6 +40,7 @@ button {
     display: flex;
     color: #247BA0;
 }
+
 #weekdays div {
     text-align: center;
     width: 15%;
@@ -66,7 +67,7 @@ button {
 /*    justify-content: space-between;*/
 
 /*}*/
-.day, .daysOfWeek {
+.day, .daysOfWeek, .padding {
     width: 11.5%;
     padding: 1%;
     height: 12.3%;
@@ -87,10 +88,21 @@ button {
     background-color:#e8f4fa;
 }
 .padding {
+    width: 11.5%;
+    padding: 1%;
+    height: 200%;
+    box-sizing: border-box;
+    margin: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     cursor: default !important;
-    background-color: #FFFCFF !important;
+    background-color: #e36ae3 !important;
     box-shadow: none !important;
 }
+
+
+
 
 /*
 Check Out Box

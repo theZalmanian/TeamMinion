@@ -23,6 +23,7 @@ function getMonth()
 
     /*  Finds the first day of the month */
     const firstDayOfMonth = new Date(year, month, 1);
+
     /*  Finds the last day in current month, by passing in Month + 1 (next month)
         and setting day to zero (Date object first day of month is always 1, so
         0 is last day of prior month)*/
@@ -60,15 +61,21 @@ function getMonth()
         calendar.appendChild(daysOfWeek);
     }
 
+    let totalDays = paddingDays + daysInMonth;
+    while ( !((totalDays % 7) === 0) ) {
+        totalDays++;
+    }
 
     // Creates all the necessary day boxes for the calendar
-    for (let i = 1; i <= paddingDays + daysInMonth; i++) {
+    for (let i = 1; i <= totalDays; i++) {
 
         // Div's are created for each day and class="day" is added
         const daySquare = document.createElement('div');
         daySquare.classList.add('day');
+        daySquare.innerText = "\n";
 
-        if (i > paddingDays) {
+
+        if (i > paddingDays && i <= (paddingDays + daysInMonth)) {
 
             //Returns the number of each day in month
             daySquare.innerText = i - paddingDays;
