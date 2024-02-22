@@ -70,7 +70,7 @@ Description:
         <!-- Calendar Column -->
         <div class="col-md-8">
 
-            <div id="container" class="md-6">
+            <div id="calendarContainer" class="md-6">
                 <div id="header">
                     <div id="monthDisplay"></div>
                     <div>
@@ -94,12 +94,13 @@ Description:
 
             <div class="container-fluid" id="massageDisplay">
                 <div class="row bg-light">
-                    <div class="col-md-6">
-                        <h1>Massage</h1>
+                    <div class="col-md-6 displayColumnLeft">
+                        <h1 class="displayHeaders">Massage</h1>
+                        <hr>
                         <img src="images/massage.jpeg"
-                             width="250px"
+                             class="displayImages"
                              alt="Lady being given a massage">
-                        <p>
+                        <p class="displayDescriptions">
                             Every massage is individually tailored to your needs. Our
                             therapists are highly-rated practitioners that believe in
                             the healing nature of their art and welcome the chance to
@@ -110,31 +111,37 @@ Description:
                         </p>
                     </div>
 
-                    <div class="col-md-6 bg-primary">
-                        <h2>Available Appointments</h2>
-                        <hr>
+                    <div class="col-md-6 displayColumnRight">
+                        <div class="availability">
+                            <h1 class="availabilityHeaders">Availability</h1>
+                            <hr>
+                        </div>
 
-                        <button class="times">1pm</button>
-                        <button class="times">1pm</button>
-                        <button class="times">1pm</button>
-                        <button class="times">1pm</button>
-                        <button class="times">1pm</button>
-                        <button class="times">1pm</button>
+                        <div class="availableTimes">
+                            <button class="times">1pm</button>
+                            <button class="times">1pm</button>
+                            <button class="times">1pm</button>
+                            <button class="times">1pm</button>
+                            <button class="times">1pm</button>
+                            <button class="times">1pm</button>
+                        </div>
                     </div>
 
 
                 </div>
             </div>
 
-            <div class="container-fluid">
+            <div class="container-fluid" id="salonDisplay">
                 <div class="row bg-light">
-                    <div class="col-md-6">
-                        <h1>Salon</h1>
+                    <div class="col-md-6 displayColumnLeft">
+                        <h1 class="displayHeaders">Salon</h1>
+                        <hr>
                         <img src="images/hairCut4.jpeg"
-                             width="250px"
+                             class="displayImages"
+                             alt="picture of a lady washing a clients hair"
                              id="hairCutPic">
 
-                        <p> Every massage is individually tailored to your needs. Our
+                        <p class="displayDescriptions"> Every massage is individually tailored to your needs. Our
                             therapists are highly-rated practitioners that believe in
                             the healing nature of their art and welcome the chance to
                             apply their skills to your individual physique. We offer a
@@ -143,15 +150,19 @@ Description:
                             focuses. </p>
                     </div>
 
-                    <div class="col-md-6 bg-primary">
-                        <h2>Available Appointments</h2>
-                        <hr>
-                        <button class="times">1pm</button>
-                        <button class="times">1pm</button>
-                        <button class="times">1pm</button>
-                        <button class="times">1pm</button>
-                        <button class="times">1pm</button>
-                        <button class="times">1pm</button>
+                    <div class="col-md-6 displayColumnRight">
+                        <div class="availability">
+                            <h1 class="availabilityHeaders">Availability</h1>
+                            <hr>
+                        </div>
+                        <div class="availableTimes">
+                            <button class="times">1pm</button>
+                            <button class="times">1pm</button>
+                            <button class="times">1pm</button>
+                            <button class="times">1pm</button>
+                            <button class="times">1pm</button>
+                            <button class="times">1pm</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -161,10 +172,64 @@ Description:
 
 
         <!-- Checkout Column -->
-        <div class="col-md-4" id="checkOutBox">
-            <h1>Check Out:</h1>
-            <div class="container-md-6 row">
-            </div>
+        <div class="col-md-4" id="checkOutColumn">
+
+            <form class="container-md-6 checkOut" method="post" action="#" id="checkOut">
+                <h1 class="checkOutHeader">Your Reservations:</h1>
+                <label for="date">Date</label>
+                <input class="form-control"
+                       autocomplete="off"
+                       type="text"
+                       id="date"
+                       value=""
+                       name="date"
+                       placeholder="1/1/2024">
+                <label for="time">Time</label>
+                <input class="form-control"
+                       autocomplete="off"
+                       type="text"
+                       id="time"
+                       value=""
+                       name="time"
+                       placeholder="1pm">
+
+                <label for="first-name">First Name</label>
+                <input class="form-control"
+                       autocomplete="off"
+                       type="text"
+                       id="first-name"
+                       value=""
+                       name="firstName"
+                       placeholder="Sarah">
+
+                <label for="last-name">Last Name</label>
+                <input class="form-control"
+                       type="text"
+                       id="last-name"
+                       value=""
+                       name="lastName"
+                       placeholder="Smith">
+
+                <label for="email">Email</label>
+                <input class="form-control"
+                       type="text"
+                       id="email"
+                       value=""
+                       name="email"
+                       placeholder="my_email@gmail.com">
+
+                <hr>
+
+                <label for="total">Total</label>
+                <input class="form-control"
+                       type="text"
+                       id="total"
+                       value=""
+                       name="total"
+                       placeholder="$0.00">
+
+            </form>
+
         </div>
     </div>
 

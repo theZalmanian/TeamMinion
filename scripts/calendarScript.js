@@ -57,7 +57,7 @@ function getMonth()
     for (let j = 0; j < weekdays.length; j++) {
         const daysOfWeek = document.createElement('div');
         daysOfWeek.classList.add('daysOfWeek');
-        daysOfWeek.innerText = weekdays[j].substring(0, 2);
+        daysOfWeek.innerText = weekdays[j].substring(0, 3);
         calendar.appendChild(daysOfWeek);
     }
 
@@ -71,13 +71,14 @@ function getMonth()
 
         // Div's are created for each day and class="day" is added
         const daySquare = document.createElement('div');
-        daySquare.classList.add('day');
+        // daySquare.classList.add('day');
         daySquare.innerText = "\n";
 
 
         if (i > paddingDays && i <= (paddingDays + daysInMonth)) {
 
             //Returns the number of each day in month
+            daySquare.classList.add('day');
             daySquare.innerText = i - paddingDays;
             daySquare.addEventListener('cick', () => console.log('click'))
             // const eventForDay = events.find(e => e.date === dayString);

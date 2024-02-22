@@ -4,14 +4,36 @@ Date: 2/9/2024
 Description:
     Styles for availability.html
 */
+
+:root {
+    --primary-color: #FFC300; /* naples yellow */
+    --primary-color-variant: #FFE15C; /* mikado yellow */
+    --primary-blue: #2660e3; /* dark blue */
+    --white: white;
+}
+
 body {
     display: block;
     margin-top: 50px;
     justify-content: center;
     background-color: #FFFCFF;
 }
-button {
-    width: 75px;
+
+#header {
+    padding: 20px;
+    color: var(--primary-blue);
+    font-size: 4vw;
+    font-weight: bolder;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: space-between;
+}
+
+#header button {
+    background-color: var(--primary-blue);
+    font-size: 3vw;
+    width: 10vw;
+    min-width: 7vw;
     cursor: pointer;
     box-shadow: 0 0 2px rgb(128, 128, 128);
     border: none;
@@ -21,24 +43,22 @@ button {
     color: white;
 }
 
-#header {
-    padding: 10px;
-    color: #d36c6c;
-    font-size: 26px;
-    font-family: sans-serif;
-    display: flex;
-    justify-content: space-between;
+#calendarContainer {
+    background-color: var(--primary-color);
 }
-#header button {
-    background-color:#92a1d1;
+
+#calendarContainer, #massageDisplay, #salonDisplay {
+    width: 94%;
+    border: 7px solid var(--primary-color);
+    border-radius: 5px;
+    margin: 20px;
+    justify-content: center;
 }
-#container {
-    width: 100%;
-}
+
 #weekdays {
     width: 100%;
     display: flex;
-    color: #247BA0;
+    color: var(--primary-blue);
 }
 
 #weekdays div {
@@ -46,60 +66,64 @@ button {
     width: 15%;
     padding: 10px;
 }
+
 #calendar {
     width: 100%;
+    padding: 10px 0 10px 20px;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
+    background-color: white;
+    border-radius: 5px;
 }
-/*.daysOfWeek {*/
-/*    font-weight: bolder;*/
-/*    width: 11.5%;*/
-/*    padding: 1%;*/
-/*    height: 12.3%;*/
-/*    cursor: pointer;*/
-/*    box-sizing: border-box;*/
-/*    background-color: white;*/
-/*    margin: 1%;*/
-/*    box-shadow: 0 0 3px #CBD4C2;*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    justify-content: space-between;*/
 
-/*}*/
-.day, .daysOfWeek, .padding {
+.daysOfWeek {
+    font-weight: bolder;
+    background-color: white;
     width: 11.5%;
     padding: 1%;
     height: 12.3%;
-    cursor: pointer;
     box-sizing: border-box;
-    background-color: white;
     margin: 1%;
     box-shadow: 0 0 3px #CBD4C2;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-.day:hover {
-    background-color: #e8faed;
+    border-radius: 4px;
 }
 
-.day + #currentDay {
-    background-color:#e8f4fa;
+.day {
+    background-color: var(--primary-color-variant);
 }
-.padding {
+
+.day, .padding {
     width: 11.5%;
     padding: 1%;
-    height: 200%;
+    height: 12.3%;
+    cursor: pointer;
     box-sizing: border-box;
     margin: 1%;
+    box-shadow: 0 0 3px #CBD4C2;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border-radius: 4px;
+}
+
+.padding {
     cursor: default !important;
-    background-color: #e36ae3 !important;
+    background-color: white !important;
     box-shadow: none !important;
 }
+
+.day:hover {
+    background-color: var(--primary-color);
+}
+
+.day + #currentDay {
+    background-color: var(--primary-blue);
+}
+
 
 
 
@@ -120,8 +144,62 @@ Check Out Box
 
 #massageDisplay {
     background-color: white;
+    border: 6px solid var(--primary-color);
+    border-radius: 5px;
 }
 
-.times {
-    width: 130px;
+.displayColumnLeft > *, .displayColumnRight > * {
+    width: 90%;
+    display: block;
+    margin: 8px auto 8px auto;
+    padding: 5px 0 5px 0;
+}
+
+.displayColumnLeft > p {
+    padding-bottom: 20px;
+}
+
+.displayColumnRight {
+    background-color: var(--primary-color);
+
+}
+
+.displayHeaders {
+    font-size: 4vw;
+    color: var(--primary-blue);
+    font-weight: bolder;
+    font-family: sans-serif;
+    padding: 10px;
+}
+
+.availabilityHeaders {
+    font-size: 4vw;
+    color: white;
+    font-weight: bolder;
+    font-family: sans-serif;
+    padding: 5px;
+
+}
+
+.availability {
+    color: white;
+}
+
+.availableTimes > * {
+    width: 100%;
+    display: block;
+    margin: 8px auto 8px auto;
+}
+
+#checkOutColumn {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.checkOut {
+    position: sticky;
+    top: 0;
+    height: 300px;
+    /*z-index: 100;*/
 }
