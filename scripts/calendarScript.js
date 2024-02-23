@@ -80,7 +80,7 @@ function getMonth()
             //Returns the number of each day in month
             daySquare.classList.add('day');
             daySquare.innerText = i - paddingDays;
-            daySquare.addEventListener('cick', () => console.log('click'))
+            daySquare.addEventListener('click', () => console.log('click'))
             // const eventForDay = events.find(e => e.date === dayString);
 
             // This is where we want to call a function to display current availability
