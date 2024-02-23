@@ -48,4 +48,18 @@ class Controller
         // display file at following path
         echo $view->render('views/availability.html');
     }
+
+    /**
+     * Routes to the Sign In page
+     */
+    function signIn() {
+        // set title
+        $this->_f3->set("title", "Sign In");
+
+        // create a new view object
+        $view = new Template();
+
+        // display file at following path
+        echo $view->render('views/signIn.html');
+    }
 }

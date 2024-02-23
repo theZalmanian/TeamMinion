@@ -33,10 +33,12 @@ $f3->route('GET|POST /availability', function () {
     $controller->availability();
 });
 
-// signIn route
-$f3->route('GET|POST /signIn', function ($f3) { //instance method
-    $view = new Template();
-    echo $view->render('views/signIn.php');
+// set sign in route
+$f3->route('GET|POST /signIn', function () {
+    global $controller;
+
+    // call the sign in route
+    $controller->signIn();
 });
 
 // run Fat-Free
