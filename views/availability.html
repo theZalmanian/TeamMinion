@@ -29,40 +29,9 @@ Description:
 </head>
 
 <body>
-
-    <!-- NavBar -->
     <header>
-        <nav class="navbar sticky-top navbar-expand-md p-3">
-            <div class="container">
-                <div class="navbar-brand">
-                    Spa On
-                </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-nav"
-                        aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse flex-row-reverse" id="navbar-nav">
-                    <div class="navbar-nav">
-                        <a class="nav-link" href="TeamMinion/">
-                            Home
-                        </a>
-                        <a class="nav-link" href="availability">
-                            Availability
-                        </a>
-
-                        <a class="nav-link" href="">
-                            Gallery
-                        </a>
-                        <a class="nav-link" href="">
-                            Services
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </nav>
+        <include href="views/layouts/navigation.html"/>
     </header>
-
-
 <main>
 
     <!-- Row for 2 column view displaying calendar and checkout menu -->
@@ -92,7 +61,6 @@ Description:
                 <div id="calendar"></div>
             </div>
 
-            <!--Massage-->
             <div class="container-fluid" id="massageDisplay">
                 <div class="row bg-light">
                     <div class="col-md-6 displayColumnLeft">
@@ -112,7 +80,7 @@ Description:
                         </p>
                     </div>
 
-                    <div class="col-md-6 displayColumnRight" id="massageAvailabilityBox">
+                    <div class="col-md-6 displayColumnRight">
                         <div class="availability">
                             <h1 class="availabilityHeaders">Availability</h1>
                             <hr>
@@ -128,47 +96,10 @@ Description:
                         </div>
                     </div>
 
-                    <!-- Don't Touch Future Development -->
-
-
-                    <!--                    <div class="col-md-6 displayColumnRight" id="massageOptionsBox">-->
-<!--                        <div class="availability">-->
-<!--                            <h1 class="availabilityHeaders">Options</h1>-->
-<!--                            <hr>-->
-<!--                        </div>-->
-<!--                        <div class="availableTimes">-->
-<!--                            <form class="container-md-6" method="post" action="#" id="massageOptionsForm">-->
-<!--                                <label for="massageType">Type of Massage</label>-->
-<!--                                <select class="form-control"-->
-<!--                                        autocomplete="off"-->
-<!--                                        id="massageType"-->
-<!--                                        name="massageType">-->
-<!--                                    <option value="shiatsu">Shiatsu</option>-->
-<!--                                    <option value="deepTissue">Deep Tissue</option>-->
-<!--                                    <option value="swedish">Swedish</option>-->
-<!--                                    <option value="sports">Sports</option>-->
-<!--                                    <option value="thai">Thai</option>-->
-<!--                                </select>-->
-
-<!--                                <label for="massageLength">Type of Massage</label>-->
-<!--                                <select class="form-control"-->
-<!--                                        autocomplete="off"-->
-<!--                                        id="massageLength"-->
-<!--                                        name="massageType">-->
-<!--                                    <option value="1">1 Hour</option>-->
-<!--                                    <option value="2">2 Hour</option>-->
-<!--                                    <option value="3">3 Hour</option>-->
-<!--                                </select>-->
-
-<!--                            </form>-->
-<!--                        </div>-->
-<!--                    </div>-->
-
 
                 </div>
             </div>
 
-            <!--Salon-->
             <div class="container-fluid" id="salonDisplay">
                 <div class="row bg-light">
                     <div class="col-md-6 displayColumnLeft">
@@ -188,7 +119,7 @@ Description:
                             focuses. </p>
                     </div>
 
-                    <div class="col-md-6 displayColumnRight" id="salonAvailabilityBox">
+                    <div class="col-md-6 displayColumnRight">
                         <div class="availability">
                             <h1 class="availabilityHeaders">Availability</h1>
                             <hr>
@@ -202,45 +133,7 @@ Description:
                             <button class="times">1pm</button>
                         </div>
                     </div>
-
-                    <!-- Don't Touch Future Development -->
-
-
-                    <!--                    <div class="col-md-6 displayColumnRight" id="salonOptionsBox">-->
-<!--                        <div class="availability">-->
-<!--                            <h1 class="availabilityHeaders">Options</h1>-->
-<!--                            <hr>-->
-<!--                        </div>-->
-<!--                        <div class="availableTimes">-->
-<!--                            <form class="container-md-6" method="post" action="#" id="salonOptionsForm">-->
-<!--                                <label for="massageType">Type of Massage</label>-->
-<!--                                <select class="form-control"-->
-<!--                                        autocomplete="off"-->
-<!--                                        id="massageType"-->
-<!--                                        name="massageType">-->
-<!--                                    <option value="shiatsu">Shiatsu</option>-->
-<!--                                    <option value="deepTissue">Deep Tissue</option>-->
-<!--                                    <option value="swedish">Swedish</option>-->
-<!--                                    <option value="sports">Sports</option>-->
-<!--                                    <option value="thai">Thai</option>-->
-<!--                                </select>-->
-
-<!--                                <label for="massageLength">Type of Massage</label>-->
-<!--                                <select class="form-control"-->
-<!--                                        autocomplete="off"-->
-<!--                                        id="massageLength"-->
-<!--                                        name="massageType">-->
-<!--                                    <option value="1">1 Hour</option>-->
-<!--                                    <option value="2">2 Hour</option>-->
-<!--                                    <option value="3">3 Hour</option>-->
-<!--                                </select>-->
-
-<!--                            </form>-->
-<!--                        </div>-->
-<!--                    </div>-->
-
                 </div>
-
             </div>
 
         </div>
@@ -309,7 +202,69 @@ Description:
         </div>
     </div>
 
+<!--    <div class="container-fluid" id="massageDisplay">-->
+<!--        <div class="row bg-light">-->
+<!--            <div class="col-md-4">-->
+<!--                <h1>Massage</h1>-->
+<!--                <img src="images/massage.jpeg"-->
+<!--                     width="250px"-->
+<!--                     alt="Lady being given a massage">-->
+<!--                <p>-->
+<!--                    Every massage is individually tailored to your needs. Our-->
+<!--                    therapists are highly-rated practitioners that believe in-->
+<!--                    the healing nature of their art and welcome the chance to-->
+<!--                    apply their skills to your individual physique. We offer a-->
+<!--                    wide range of massage techniques, from holistic full body-->
+<!--                    experiences to rehabilitative and specific region centric-->
+<!--                    focuses.-->
+<!--                </p>-->
+<!--            </div>-->
 
+<!--            <div class="col-md-4 bg-primary d-block">-->
+<!--                <h2>Available Appointments</h2>-->
+<!--                <hr>-->
+
+<!--                <button class="times">1pm</button>-->
+<!--                <button class="times">1pm</button>-->
+<!--                <button class="times">1pm</button>-->
+<!--                <button class="times">1pm</button>-->
+<!--                <button class="times">1pm</button>-->
+<!--                <button class="times">1pm</button>-->
+<!--            </div>-->
+
+
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <div class="container-fluid">-->
+<!--        <div class="row bg-light">-->
+<!--            <div class="col-md-4">-->
+<!--                <h1>Salon</h1>-->
+<!--                <img src="images/hairCut4.jpeg"-->
+<!--                     width="250px"-->
+<!--                     id="hairCutPic">-->
+
+<!--                <p> Every massage is individually tailored to your needs. Our-->
+<!--                    therapists are highly-rated practitioners that believe in-->
+<!--                    the healing nature of their art and welcome the chance to-->
+<!--                    apply their skills to your individual physique. We offer a-->
+<!--                    wide range of massage techniques, from holistic full body-->
+<!--                    experiences to rehabilitative and specific region centric-->
+<!--                    focuses. </p>-->
+<!--            </div>-->
+
+<!--            <div class="col-md-4 bg-primary d-block">-->
+<!--                <h2>Available Appointments</h2>-->
+<!--                <hr>-->
+<!--                <button class="times">1pm</button>-->
+<!--                <button class="times">1pm</button>-->
+<!--                <button class="times">1pm</button>-->
+<!--                <button class="times">1pm</button>-->
+<!--                <button class="times">1pm</button>-->
+<!--                <button class="times">1pm</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 
 
     <!--Footer-->

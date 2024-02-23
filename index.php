@@ -18,7 +18,7 @@ $f3 = Base::instance();
 $controller = new Controller($f3);
 
 // setup home route
-$f3->route('GET /', function ($f3) {
+$f3->route('GET /', function () {
     global $controller;
 
     // call the home route
@@ -26,7 +26,7 @@ $f3->route('GET /', function ($f3) {
 });
 
 // set availability route to book appointments
-$f3->route('GET|POST /availability', function ($f3) {
+$f3->route('GET|POST /availability', function () {
     global $controller;
 
     // call the availability route
