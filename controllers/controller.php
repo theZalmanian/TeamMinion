@@ -24,6 +24,9 @@ class Controller
      */
     function home()
     {
+        // set title
+        $this->_f3->set("title", "Home");
+
         // create a new view object
         $view = new Template();
 
@@ -36,6 +39,9 @@ class Controller
      */
     function availability()
     {
+        // set title
+        $this->_f3->set("title", "Availability");
+
         // create a new view object
         $view = new Template();
 

@@ -8,32 +8,17 @@ Description:
 -->
 
 <!DOCTYPE html>
-<!--suppress JSUnresolvedLibraryURL, HtmlUnknownTarget -->
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendar</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="images/lotus-icon.svg">
-    <!-- Bootstrap CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <!-- styles specific to this page -->
-    <link rel="stylesheet" href="styles/availabilityStyles.css">
-    <!-- styles from home page -->
+    <include href="views/layouts/commonHead.html"/>
     <link rel="stylesheet" href="styles/homeStyles.css">
-    <!-- script -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="styles/availabilityStyles.css">
 </head>
-
 <body>
     <header>
         <include href="views/layouts/navigation.html"/>
     </header>
 <main>
-
     <!-- Row for 2 column view displaying calendar and checkout menu -->
     <div class="row">
         <!-- Calendar Column -->
