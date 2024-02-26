@@ -15,7 +15,7 @@ class ValidateAvailability
     public function __construct()
     {
         try {
-            // Instantiate a PDO databse connection object
+            // Instantiate a PDO database connection object
             $this->_dbh = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
             echo 'Connected to database!';
         } catch (PDOException $e) {
