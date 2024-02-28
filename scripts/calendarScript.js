@@ -133,21 +133,24 @@ function getAvailability(date) {
 
 
 
-    let dateReturned = document.createElement('div');
-    let availabilityDiv = document.getElementById('dayTimeSelected');
-    dateReturned.innerText = date;
-    availabilityDiv.appendChild(dateReturned);
+    // let dateReturned = document.createElement('div');
+    // let availabilityDiv = document.getElementById('dayTimeSelected');
+    // dateReturned.innerText = date;
+    // availabilityDiv.appendChild(dateReturned);
 
-    let xhttp = new XMLHttpRequest();
-    let url = 'https://tgoetzgr.greenriverdev.com/TeamMinion/availability';
+    // let xhttp = new XMLHttpRequest();
+    // let url = 'https://tgoetzgr.greenriverdev.com/TeamMinion/availability';
+    //
+    // fetch(url, {method: 'GET'})
+    //     .then(Result => Result.json())
+    //     .then(date => {
+    //         console.log(date);
+    //     })
+    //     .catch(errorMsg => {console.log(errorMsg);})
 
-    fetch(url, {method: 'GET'})
-        .then(Result => Result.json())
-        .then(date => {
-            console.log(date);
-        })
-        .catch(errorMsg => {console.log(errorMsg);})
 
+
+        $("#dayTimeSelected").load ( "model/availability.php", { date:date } );
 
 
 

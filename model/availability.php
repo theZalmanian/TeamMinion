@@ -1,3 +1,3 @@
 <?php
 
-echo "Helloooooooo!";
+echo $_POST['date'];
