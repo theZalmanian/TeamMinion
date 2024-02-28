@@ -23,9 +23,27 @@ class ValidateAvailability
         }
     }
 
-public static function checkOut() {
+    function selectAllQuery($dbConnection) {
+        // define the select query
+        $query = "SELECT * 
+                  FROM Reservations";
 
-}
+        // prepare the statement
+        $statement = $dbConnection->prepare($query);
+
+        // execute the query
+        $statement->execute();
+
+        // get, process, and display the returned rows
+        $allReservations = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($allReservations as $currReservation) {
+            $type = $currReservation["Type"];
+            $date = $currReservation["OurDate"];
+
+            echo "<p>{$type} - {$date}</p>";
+        }
+    }
 
 
 }

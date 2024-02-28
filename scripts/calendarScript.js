@@ -4,16 +4,14 @@ let clicked  = null;
 // Initializes Events
 let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
 
-const calendar = document.getElementById('calendar');
-const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', ]
+const calendar= document.getElementById('calendar');
+const weekdays= ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', ]
 
-
-
+// generates the next month worth of dates
 function getMonth()
 {
     //Date is an Array and Current Month is index 0
     const dateObject = new Date();
-
 
     if (monthSelected !== 0) {
         dateObject.setMonth(new Date().getMonth() + monthSelected);
@@ -33,13 +31,13 @@ function getMonth()
 
     /* Formats the String for Date Object*/
     const dateString = firstDayOfMonth.toLocaleDateString(
-        'en-us',
-        {
-            weekday: 'long', // Prints 'monday', 'tuesday', etc.
-            year: 'numeric',
-            month: 'numeric',
-            day: 'numeric'
-        });
+    'en-us',
+    {
+        weekday: 'long', // Prints 'monday', 'tuesday', etc.
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric'
+    });
 
     /*
     * Padding days = days of last month before this month
@@ -94,12 +92,19 @@ function getMonth()
 
             // const eventForDay = events.find(e => e.date === dayString);
 
+            // get the current square's full date
+            let currDate = new Date(dateObject.getFullYear(), dateObject.getMonth(), i - paddingDays);
+
+            // format it to work with DB
+            let formattedDate = currDate.toISOString().split('T')[0];
+
             // This is where we want to call a function to display current availability
+            // setup day square's onclick
             daySquare.addEventListener(
                 'click',
-                () => getAvailability(
-                    new Date(dateObject.getFullYear(), dateObject.getMonth(), i - paddingDays)
-                ));
+                // invoke the getAvailability method for the current date
+                () => getAvailability(formattedDate)
+            );
 
             daySquare.addEventListener(
                 'click',
@@ -130,9 +135,6 @@ function calendarButtons()
 }
 
 function getAvailability(date) {
-
-
-
     // let dateReturned = document.createElement('div');
     // let availabilityDiv = document.getElementById('dayTimeSelected');
     // dateReturned.innerText = date;
@@ -148,13 +150,8 @@ function getAvailability(date) {
     //     })
     //     .catch(errorMsg => {console.log(errorMsg);})
 
-
-
-        $("#dayTimeSelected").load ( "model/availability.php", { date:date } );
-
-
-
-
+    // AJAX transfer clicked date to PHP
+    $("#dayTimeSelected").load ( "model/availability.php", { date:date } );
 }
 
 calendarButtons();
