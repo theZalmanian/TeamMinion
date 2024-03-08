@@ -20,7 +20,7 @@ try {
 // define the select query
 $query = "SELECT * 
           FROM reservations
-          WHERE reservationDateTime = :currDate";
+          WHERE reservationDate = :currDate";
 
 // prepare the statement
 $statement = $dbConnection->prepare($query);
@@ -35,7 +35,7 @@ $allReservations = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($allReservations as $currReservation) {
     $type = $currReservation["type"];
-    $date = $currReservation["reservationDateTime"];
+    $date = $currReservation["reservationDate"];
 
     echo "<p>{$type} - {$date}</p>";
 }
