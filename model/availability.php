@@ -37,5 +37,5 @@ foreach ($allReservations as $currReservation) {
     $type = $currReservation["type"];
     $date = $currReservation["reservationDate"];
 
-    echo "<p>{$type} - {$date}</p>";
+    echo "<button class='times'>{$type} - {$date}</button>";
 }

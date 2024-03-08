@@ -151,7 +151,7 @@ function getAvailability(date) {
     //     .catch(errorMsg => {console.log(errorMsg);})
 
     // AJAX transfer clicked date to PHP
-    $("#dayTimeSelected").load ( "model/availability.php", { date:date } );
+    $("#availableTimes").load ( "model/availability.php", { date:date } );
 }
 
 calendarButtons();

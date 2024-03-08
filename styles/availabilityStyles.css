@@ -185,7 +185,7 @@ Check Out Box
     color: white;
 }
 
-.availableTimes > * {
+#availableTimes > * {
     width: 100%;
     display: block;
     margin: 8px auto 8px auto;
