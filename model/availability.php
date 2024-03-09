@@ -17,25 +17,35 @@ try {
     echo $e->getMessage(); #temporary
 }
 
-// define the select query
-$query = "SELECT * 
-          FROM reservations
-          WHERE reservationDate = :currDate";
+// run through all time slots (09:00 - 17:00), and only display times not reserved in DB
+for($currHour = 9; $currHour <= 17; $currHour++) {
+    // check db for a reservation at the current date selected through calender and hour
+    $query = "SELECT * 
+              FROM reservations
+              WHERE reservationDate = :currDate AND reservationTime = :currHour";
 
-// prepare the statement
-$statement = $dbConnection->prepare($query);
+    // prepare the statement
+    $statement = $dbConnection->prepare($query);
 
-$statement->bindValue(":currDate", $currDate);
+    $statement->bindValue(":currDate", $currDate);
+    $statement->bindValue(":currHour", $currHour . ":00:00");
 
-// execute the query
-$statement->execute();
+    // execute the query
+    $statement->execute();
 
-// get, process, and display the returned rows
-$allReservations = $statement->fetchAll(PDO::FETCH_ASSOC);
+    // get the current row
+    $currReservation = $statement->fetch(PDO::FETCH_ASSOC);
 
-foreach ($allReservations as $currReservation) {
-    $type = $currReservation["type"];
-    $date = $currReservation["reservationDate"];
+    // if there is not a reservation at that time in DB
+    if(!$currReservation) {
+        // if the hour is after 12, subtract 12 as we are using
+        // 24h format for the for loop due to DB
+        $displayHour = $currHour > 12 ? $currHour - 12 : $currHour;
 
-    echo "<button class='times'>{$type} - {$date}</button>";
+        // determine the time suffix for current hour
+        $timeSuffix = $currHour < 12 ? 'am' : 'pm';
+
+        // display a button for that hour
+        echo "<button class='times'>{$displayHour}:00 {$timeSuffix}</button>";
+    }
 }
