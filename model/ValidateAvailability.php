@@ -5,12 +5,16 @@ error_reporting(E_ALL);
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/../config.php');
 
+/**
+ * Validate Object created to fun validation methods on user Input
+ * and contains connection to database via field
+ */
 class ValidateAvailability
 {
     private $_dbh;
 
     /**
-     * @param $_dbh
+     * constructs a ValidateAvailability object
      */
     public function __construct()
     {
@@ -23,6 +27,12 @@ class ValidateAvailability
         }
     }
 
+    /**
+     * Collects the current date clicked from calendar and queries
+     * database to render available time slots for massage
+     * @param $currDate
+     * @return void
+     */
     function getAvailableTimes($currDate)
     {
         // run through all time slots (09:00 - 17:00), and only display times not reserved in DB

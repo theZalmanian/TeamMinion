@@ -1,6 +1,8 @@
 <?php
-
-//require_once("ValidateAvailability.php");
+/**
+ * Unsure how to handle script pathway to instantiate object
+ */
+require_once("ValidateAvailability.php");
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
