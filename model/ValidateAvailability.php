@@ -3,7 +3,7 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-require($_SERVER['DOCUMENT_ROOT'] . '/../config.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/../config.php');
 
 class ValidateAvailability
 {
@@ -23,27 +23,40 @@ class ValidateAvailability
         }
     }
 
-    function selectAllQuery($dbConnection) {
-        // define the select query
-        $query = "SELECT * 
-                  FROM Reservations";
+    function getAvailableTimes($currDate)
+    {
+        // run through all time slots (09:00 - 17:00), and only display times not reserved in DB
+        for ($currHour = 9; $currHour <= 17; $currHour++) {
+            // check db for a reservation at the current date selected through calendar and hour
+            $query = "SELECT * 
+              FROM reservations
+              WHERE reservationDate = :currDate AND reservationTime = :currHour";
 
-        // prepare the statement
-        $statement = $dbConnection->prepare($query);
+            // prepare the statement
+            $statement = $this->_dbh->prepare($query);
 
-        // execute the query
-        $statement->execute();
+            // bind parameters
+            $statement->bindValue(":currDate", $currDate);
+            $statement->bindValue(":currHour", $currHour . ":00:00");
 
-        // get, process, and display the returned rows
-        $allReservations = $statement->fetchAll(PDO::FETCH_ASSOC);
+            // execute the query
+            $statement->execute();
 
-        foreach ($allReservations as $currReservation) {
-            $type = $currReservation["Type"];
-            $date = $currReservation["OurDate"];
+            // get the current row
+            $currReservation = $statement->fetch(PDO::FETCH_ASSOC);
 
-            echo "<p>{$type} - {$date}</p>";
+            // if there is not a reservation at that time in DB
+            if (!$currReservation) {
+                // if the hour is after 12, subtract 12 as we are using
+                // 24h format for the for loop due to DB
+                $displayHour = $currHour > 12 ? $currHour - 12 : $currHour;
+
+                // determine the time suffix for current hour
+                $timeSuffix = $currHour < 12 ? 'am' : 'pm';
+
+                // display a button for that hour
+                echo "<button class='times'>{$displayHour}:00 {$timeSuffix}</button>";
+            }
         }
     }
-
-
 }
