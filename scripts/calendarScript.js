@@ -7,7 +7,9 @@ let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('e
 const calendar= document.getElementById('calendar');
 const weekdays= ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', ]
 
-// generates the next month worth of dates
+/**
+ * generates a month worth of dates for the calendar
+  */
 function getMonth()
 {
     //Date is an Array and Current Month is index 0
@@ -121,37 +123,59 @@ function getMonth()
 }
 
 
-// Increments and decrements the month at the top of the calendar
+/**
+ * Increments and decrements the month at the top of the calendar
+  */
 function calendarButtons()
 {
+    // Click Listener for Next Calendar Month
     document.getElementById('nextButton').addEventListener('click', () => {
         monthSelected++;
         getMonth();
     });
+    // Click Listener for Previous Calendar Month
     document.getElementById('backButton').addEventListener('click', () => {
         monthSelected--;
         getMonth();
     });
 }
 
-function getAvailability(date) {
-    // let dateReturned = document.createElement('div');
-    // let availabilityDiv = document.getElementById('dayTimeSelected');
-    // dateReturned.innerText = date;
-    // availabilityDiv.appendChild(dateReturned);
-
-    // let xhttp = new XMLHttpRequest();
-    // let url = 'https://tgoetzgr.greenriverdev.com/TeamMinion/availability';
-    //
-    // fetch(url, {method: 'GET'})
-    //     .then(Result => Result.json())
-    //     .then(date => {
-    //         console.log(date);
-    //     })
-    //     .catch(errorMsg => {console.log(errorMsg);})
-
-    // AJAX transfer clicked date to PHP
+/**
+ * Creates timeSlot Buttons for available times after
+ * querying the database to check for existing times
+ * Creates timeSlot button only if reservation at that
+ * time does not exist
+ * @param date date clicked on calendar
+ */
+function getAvailability(date)
+{
+    /*
+    AJAX call to run ValidateAvailability and
+    populate TimeSlots for calendar date clicked
+    */
     $("#availableTimes").load ( "model/availability.php", { date:date } );
+
+    /*
+     Event delegation to create onclick for newly created
+     timeSlot buttons and call to populateCheckOutForms
+     to autofill checkOutForm
+    */
+    $("#availableTimes").on("click", "button", function(event) {
+        event.preventDefault();
+        console.log($(this).text());
+        populateCheckOutForm(date, $(this).text());
+    });
+}
+
+/**
+ * Autofills the #checkOut Form from user selection
+ * @param date date of desired reservation
+ * @param time time of desired reservation
+ */
+function populateCheckOutForm(date, time)
+{
+    document.getElementById("date").value = date;
+    document.getElementById("time").value = time;
 }
 
 calendarButtons();
