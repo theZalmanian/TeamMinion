@@ -1,9 +1,5 @@
 <?php
 
-namespace classes;
-
-use Cassandra\Date;
-
 class Reservations
 {
     private $_firstname;
@@ -15,27 +11,25 @@ class Reservations
     private $_time;
 
     /**
-     * @param $_firstname
-     * @param $_lastName
-     * @param $_email
-     * @param $_phone
-     * @param $_totalPrice
+     * @param string $_firstname
+     * @param string $_lastName
+     * @param string $_email
+     * @param string $_phone
      * @param $_date
      * @param $_time
      */
     public function __construct(
-        String $_firstname="",
-        $_lastName, $_email,
+        $_firstname,
+        $_lastName,
+        $_email,
         $_phone,
-        $_totalPrice,
-        Date $_date,
-        Time $_time)
+        $_date,
+        $_time)
     {
         $this->_firstname = $_firstname;
         $this->_lastName = $_lastName;
         $this->_email = $_email;
         $this->_phone = $_phone;
-        $this->_totalPrice = $_totalPrice;
         $this->_date = $_date;
         $this->_time = $_time;
     }
@@ -114,22 +108,22 @@ class Reservations
         $this->_totalPrice = $totalPrice;
     }
 
-    public function getDate(): Date
+    public function getDate()
     {
         return $this->_date;
     }
 
-    public function setDate(Date $date): void
+    public function setDate($date)
     {
         $this->_date = $date;
     }
 
-    public function getTime(): Time
+    public function getTime()
     {
         return $this->_time;
     }
 
-    public function setTime(Time $time): void
+    public function setTime($time)
     {
         $this->_time = $time;
     }
