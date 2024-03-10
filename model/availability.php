@@ -4,14 +4,9 @@
  */
 require_once("ValidateAvailability.php");
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
-//require($_SERVER['DOCUMENT_ROOT'] . '/../config.php');
-
-echo $_POST['date'] . "<br><br>";
-
+// get the current date sent from calendar via AJAX
 $currDate = date_create($_POST['date'])->format('Y-m-d H:i:s');
 
+// check DB and display all times available on that day
 $ValidateAvailability = new ValidateAvailability();
 $ValidateAvailability->getAvailableTimes($currDate);

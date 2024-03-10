@@ -39,8 +39,8 @@ class ValidateAvailability
         for ($currHour = 9; $currHour <= 17; $currHour++) {
             // check db for a reservation at the current date selected through calendar and hour
             $query = "SELECT * 
-              FROM reservations
-              WHERE reservationDate = :currDate AND reservationTime = :currHour";
+                      FROM reservations
+                      WHERE reservationDate = :currDate AND reservationTime = :currHour";
 
             // prepare the statement
             $statement = $this->_dbh->prepare($query);
@@ -65,8 +65,33 @@ class ValidateAvailability
                 $timeSuffix = $currHour < 12 ? 'am' : 'pm';
 
                 // display a button for that hour
-                echo "<button class='timeSlots' id='$displayHour'>{$displayHour}:00 {$timeSuffix}</button>";
+                echo "<button class='timeSlots' id='{$displayHour}' value='{$currHour}:00:00'>{$displayHour}:00 {$timeSuffix}</button>";
             }
         }
+    }
+
+    /**
+     * Gets the current reservation object from session and saves it to DB
+     */
+    function reserveEvent() {
+        // grab current reservation from session
+        $currReservation = $_SESSION["currReservation"];
+
+        $query = "INSERT INTO reservations (type, reservationDate, reservationTime, firstName, lastName, email) 
+                    VALUES (:type, :reservationDate, :reservationTime, :firstName, :lastName, :email)";
+
+        // prepare the statement
+        $statement = $this->_dbh->prepare($query);
+
+        // bind parameters
+        $statement->bindValue(":type", "Massage");
+        $statement->bindValue(":reservationDate", $currReservation->getDate());
+        $statement->bindValue(":reservationTime", $currReservation->getTime());
+        $statement->bindValue(":firstName", $currReservation->getFirstName());
+        $statement->bindValue(":lastName", $currReservation->getLastName());
+        $statement->bindValue(":email", $currReservation->getEmail());
+
+        // execute the query
+        $statement->execute();
     }
 }

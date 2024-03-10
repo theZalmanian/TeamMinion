@@ -162,13 +162,13 @@ function getAvailability(date)
     */
     $("#availableTimes").on("click", "button", function(event) {
         event.preventDefault();
-        console.log($(this).text());
+        console.log($(this).val());
 
         // hide the time slots
         document.getElementById("availableTimes").classList.add("d-none");
 
         // display the selected date and time on check out form
-        populateCheckOutForm(date, $(this).text());
+        populateCheckOutForm(date, $(this).val());
 
         // display the checkout form
         document.getElementById("massageCheckout").classList.remove("d-none");

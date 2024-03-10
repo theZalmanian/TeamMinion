@@ -39,7 +39,24 @@ class Controller
      */
     function availability()
     {
-        var_dump($_POST);
+        // if a checkout submission was received
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // create a reservation object with the given data
+            $currReservation = new Reservations(
+                                    $_POST["firstName"],
+                                    $_POST["lastName"],
+                                    $_POST["email"],
+                                    $_POST["phone"],
+                                    $_POST["date"],
+                                    $_POST["time"]);
+
+            // save reservation object session
+            $this->_f3->set("SESSION.currReservation", $currReservation);
+
+            // add reservation to DB
+            $ValidateAvailability = new ValidateAvailability();
+            $ValidateAvailability->reserveEvent();
+        }
 
         // set title
         $this->_f3->set("title", "Availability");
@@ -54,7 +71,8 @@ class Controller
     /**
      * Routes to the Sign In page
      */
-    function signIn() {
+    function signIn()
+    {
         // set title
         $this->_f3->set("title", "Sign In");
 
