@@ -163,7 +163,15 @@ function getAvailability(date)
     $("#availableTimes").on("click", "button", function(event) {
         event.preventDefault();
         console.log($(this).text());
+
+        // hide the time slots
+        document.getElementById("availableTimes").classList.add("d-none");
+
+        // display the selected date and time on check out form
         populateCheckOutForm(date, $(this).text());
+
+        // display the checkout form
+        document.getElementById("massageCheckout").classList.remove("d-none");
     });
 }
 
@@ -176,6 +184,9 @@ function populateCheckOutForm(date, time)
 {
     document.getElementById("date").value = date;
     document.getElementById("time").value = time;
+
+    document.getElementById("date-checkout-display").innerText = date;
+    document.getElementById("time-checkout-display").innerText = time;
 }
 
 calendarButtons();
