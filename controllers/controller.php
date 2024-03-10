@@ -39,6 +39,8 @@ class Controller
      */
     function availability()
     {
+        var_dump($_POST);
+
         // set title
         $this->_f3->set("title", "Availability");
 

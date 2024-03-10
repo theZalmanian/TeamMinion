@@ -78,6 +78,40 @@ Description:
 
                         <div id="availableTimes">
                         </div>
+
+                        <form method="post" action="#" id="massage-checkout">
+                            <h4>
+                                Massage on <span id="date-checkout-display"></span>
+                                at <span id="time-checkout-display"></span>
+                            </h4>
+                            <div>
+                                <input class="form-control" type="text" id="date" name="date" hidden>
+                                <input class="form-control" type="text" id="time" name="time" hidden>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="first-name" name="firstName"
+                                       placeholder="" required>
+                                <label for="first-name">First Name</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="last-name" name="lastName"
+                                       placeholder="" required>
+                                <label for="last-name">Last Name</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="tel" class="form-control" id="phone" name="phone"
+                                       placeholder="" required>
+                                <label for="phone">Phone</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="email" name="email"
+                                       placeholder="" required>
+                                <label for="email">Email</label>
+                            </div>
+
+                            <hr>
+                            <button class="btn btn-primary" type="submit">Check Out</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -117,72 +151,67 @@ Description:
                     </div>
                 </div>
             </div>
-
         </div>
-
-
 
         <!-- Checkout Column -->
-        <div class="col-md-4" id="checkOutColumn">
+<!--        <div class="col-md-4" id="checkOutColumn">-->
 
-            <form class="container-md-6 checkOut" method="post" action="#" id="checkOut">
-                <h1 class="checkOutHeader">Your Reservations:</h1>
-                <label for="date">Date</label>
-                <input class="form-control"
-                       autocomplete="off"
-                       type="text"
-                       id="date"
-                       value=""
-                       name="date"
-                       placeholder="1/1/2024">
-                <label for="time">Time</label>
-                <input class="form-control"
-                       autocomplete="off"
-                       type="text"
-                       id="time"
-                       value=""
-                       name="time"
-                       placeholder="1pm">
+<!--            <form class="container-md-6 checkOut" method="post" action="#" id="checkOut">-->
+<!--                <h1 class="checkOutHeader">Your Reservations:</h1>-->
+<!--                <input class="form-control"-->
+<!--                       -->
+<!--                       id="date"-->
+<!--                       value=""-->
+<!--                       name="date"-->
+<!--                       hidden>-->
 
-                <label for="first-name">First Name</label>
-                <input class="form-control"
-                       autocomplete="off"
-                       type="text"
-                       id="first-name"
-                       value=""
-                       name="firstName"
-                       placeholder="Sarah">
+<!--                <input class="form-control"-->
+<!--                       type="text"-->
+<!--                       id="time"-->
+<!--                       value=""-->
+<!--                       name="time"-->
+<!--                       hidden>-->
 
-                <label for="last-name">Last Name</label>
-                <input class="form-control"
-                       type="text"
-                       id="last-name"
-                       value=""
-                       name="lastName"
-                       placeholder="Smith">
+<!--                <label for="first-name">First Name</label>-->
+<!--                <input class="form-control"-->
+<!--                       type="text"-->
+<!--                       id="first-name"-->
+<!--                       value=""-->
+<!--                       name="firstName"-->
+<!--                       placeholder="Sarah">-->
 
-                <label for="email">Email</label>
-                <input class="form-control"
-                       type="text"
-                       id="email"
-                       value=""
-                       name="email"
-                       placeholder="my_email@gmail.com">
+<!--                <label for="last-name">Last Name</label>-->
+<!--                <input class="form-control"-->
+<!--                       type="text"-->
+<!--                       id="last-name"-->
+<!--                       value=""-->
+<!--                       name="lastName"-->
+<!--                       placeholder="Smith">-->
 
-                <hr>
+<!--                <label for="email">Email</label>-->
+<!--                <input class="form-control"-->
+<!--                       type="text"-->
+<!--                       id="email"-->
+<!--                       value=""-->
+<!--                       name="email"-->
+<!--                       placeholder="my_email@gmail.com">-->
 
-                <label for="total">Total</label>
-                <input class="form-control"
-                       type="text"
-                       id="total"
-                       value=""
-                       name="total"
-                       placeholder="$0.00">
+<!--                <hr>-->
+<!--                <button class="btn btn-primary" type="submit">Check Out</button>-->
+<!--                <br>-->
 
-            </form>
+<!--                <label for="total">Total</label>-->
+<!--                <input class="form-control"-->
+<!--                       type="text"-->
+<!--                       id="total"-->
+<!--                       value=""-->
+<!--                       name="total"-->
+<!--                       placeholder="$0.00">-->
 
-        </div>
-    </div>
+<!--            </form>-->
+
+<!--        </div>-->
+<!--        </div>-->
 
 <!--    <div class="container-fluid" id="massageDisplay">-->
 <!--        <div class="row bg-light">-->
