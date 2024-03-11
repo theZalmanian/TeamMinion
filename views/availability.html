@@ -112,6 +112,35 @@ Description:
                             <hr>
                             <button class="btn btn-primary" type="submit" id="checkOut-btn">Check Out</button>
                         </form>
+
+                        <div class="massage-options">
+                            <h4>Customize Your Massage</h4>
+                            <hr>
+                            <div class="form-floating">
+                                <select class="form-select" id="massageType" aria-label="Massage Type" required>
+                                    <option value="">Massage 1</option>
+                                    <option value="">Massage 2</option>
+                                    <option value="">Massage 3</option>
+                                </select>
+                                <label for="massageType">What type of massage would you like?</label>
+                            </div>
+                            <div class="row input-group-text justify-content-center my-2">
+                                <p>Would you like Hot Stones with your massage?</p>
+                                <input type="radio" class="btn-check" name="hotStones" id="hotStonesYes" value="Yes">
+                                <label class="btn col-3 m-2" for="hotStonesYes">Yes</label>
+
+                                <input type="radio" class="btn-check" name="hotStones" id="hotStonesNo" value="No">
+                                <label class="btn col-3 m-2" for="hotStonesNo">No</label>
+                            </div>
+                            <div class="form-floating">
+                                <select class="form-select" id="massageIntensity" aria-label="Massage Intensity">
+                                    <option value="delicate">Delicate</option>
+                                    <option value="moderate">Moderate</option>
+                                    <option value="extreme">Extreme</option>
+                                </select>
+                                <label for="massageType">How intense would you like your massage?</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
