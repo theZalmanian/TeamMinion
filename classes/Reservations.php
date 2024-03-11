@@ -1,20 +1,25 @@
 <?php
 
+/**
+ * Reservation base class to be extended when more
+ * services become available, ie hair cuts,
+ */
 class Reservations
 {
+
+//    private guest; Possible future database extension
     private $_firstname;
     private $_lastName;
     private $_email;
-    private $_phone;
-    private $_totalPrice;
     private $_date;
     private $_time;
+    private $_totalPrice;
+
 
     /**
      * @param string $_firstname
      * @param string $_lastName
      * @param string $_email
-     * @param string $_phone
      * @param $_date
      * @param $_time
      */
@@ -22,14 +27,12 @@ class Reservations
         $_firstname,
         $_lastName,
         $_email,
-        $_phone,
         $_date,
         $_time)
     {
         $this->_firstname = $_firstname;
         $this->_lastName = $_lastName;
         $this->_email = $_email;
-        $this->_phone = $_phone;
         $this->_date = $_date;
         $this->_time = $_time;
     }
@@ -74,22 +77,6 @@ class Reservations
     public function setEmail($email): void
     {
         $this->_email = $email;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPhone()
-    {
-        return $this->_phone;
-    }
-
-    /**
-     * @param mixed $phone
-     */
-    public function setPhone($phone): void
-    {
-        $this->_phone = $phone;
     }
 
     /**
