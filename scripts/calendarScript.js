@@ -1,3 +1,13 @@
+/**
+ * Calendar Javascript to generate an accurate and traversable
+ * calendar and implement functionality to reservation check out
+ * system
+ *
+ * This code was greatly influenced and abstracted from the advice
+ * of PortEXE youtube channel and their video at
+ * https://www.youtube.com/watch?v=m9OSBJaQTlM
+ */
+
 let monthSelected = 0;    // Keep track of Current Month (Month plus nav = month displayed)
 let clicked  = null;
 
@@ -142,9 +152,10 @@ function calendarButtons()
 
 /**
  * Creates timeSlot Buttons for available times after
- * querying the database to check for existing times
+ * querying the database to check for existing reservations.
  * Creates timeSlot button only if reservation at that
- * time does not exist
+ * time does not exist by calling and validating PHP script
+ * using Ajax
  * @param date date clicked on calendar
  */
 function getAvailability(date)
@@ -167,14 +178,16 @@ function getAvailability(date)
         // hide the time slots
         document.getElementById("availableTimes").classList.add("d-none");
 
-        // Update .availabilityHeaders to display "Customize"
-
         // display the selected date and time on check out form
-        // pass this to the checkOutForm
         populateCheckOutForm(date, $(this).val());
 
+        // Update .availabilityHeaders to display "Customize"
+        console.log(document.getElementById("resFormHeader").innerHTML);
+        document.getElementById("resFormHeader").innerHTML = "Customize";
+
         /**
-         * Please explain how to encapsulate a form using php
+         * Please explain how to encapsulate a form using php Question for Future
+         * Forms inside forms, forms displayed using php
          */
 
         // display customizeOrder Form
@@ -183,8 +196,13 @@ function getAvailability(date)
 
         // ajax call to validate customizeOrder Form
 
+
+
+
         // display the checkout form
-        document.getElementById("massageCheckout").classList.remove("d-none");
+        document.getElementById("customizeMassage").classList.remove("d-none");
+        // console.log(document.getElementById("resFormHeader").innerHTML);
+        // document.getElementById("resFormHeader").textHTML = "Customize";
     });
 }
 
