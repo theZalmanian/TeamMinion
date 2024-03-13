@@ -55,14 +55,11 @@ class Controller
             $currReservation->setIntensity($_POST["massageIntensity"]);
 
             // save reservation object session
-            $this->_f3->set("SESSION.currReservation", $currReservation);
+            $this->_f3->set("SESSION.currMassageReservation", $currReservation);
 
             // add reservation to DB
             $ValidateAvailability = new ValidateAvailability();
-            $ValidateAvailability->reserveEvent();
-            echo "<pre>";
-            var_dump($currReservation);
-            echo "</pre>";
+            $ValidateAvailability->reserveMassage();
         }
 
         // set title

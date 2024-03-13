@@ -39,8 +39,8 @@ class ValidateAvailability
         for ($currHour = 9; $currHour <= 17; $currHour++) {
             // check db for a reservation at the current date selected through calendar and hour
             $query = "SELECT * 
-                      FROM reservations
-                      WHERE reservationDate = :currDate AND reservationTime = :currHour";
+                      FROM massages
+                      WHERE massageDate = :currDate AND massageTime = :currHour";
 
             // prepare the statement
             $statement = $this->_dbh->prepare($query);
@@ -73,29 +73,27 @@ class ValidateAvailability
     /**
      * Gets the current reservation object from session and saves it to DB
      */
-    function reserveEvent() {
+    function reserveMassage() {
         // grab current reservation from session
-        $currReservation = $_SESSION["currReservation"];
+        $currReservation = $_SESSION["currMassageReservation"];
 
-        $query = "INSERT INTO reservations (type, reservationDate, reservationTime, firstName, lastName, email) 
-                    VALUES (:type, :reservationDate, :reservationTime, :firstName, :lastName, :email)";
+        $query = "INSERT INTO massages (massageDate, massageTime, massageType, hotStones, massageIntensity, firstName, lastName, email) 
+                    VALUES (:massageDate, :massageTime, :massageType, :hotStones, :massageIntensity, :firstName, :lastName, :email)";
 
         // prepare the statement
         $statement = $this->_dbh->prepare($query);
 
         // bind parameters
-        $statement->bindValue(":type", "Massage");
-        $statement->bindValue(":reservationDate", $currReservation->getDate());
-        $statement->bindValue(":reservationTime", $currReservation->getTime());
+        $statement->bindValue(":massageDate", $currReservation->getDate());
+        $statement->bindValue(":massageTime", $currReservation->getTime());
+        $statement->bindValue(":massageType", $currReservation->getMassageType());
+        $statement->bindValue(":hotStones", $currReservation->isHotStone());
+        $statement->bindValue(":massageIntensity", $currReservation->getIntensity());
         $statement->bindValue(":firstName", $currReservation->getFirstName());
         $statement->bindValue(":lastName", $currReservation->getLastName());
         $statement->bindValue(":email", $currReservation->getEmail());
 
         // execute the query
         $statement->execute();
-
-        if(empty($statement->errorInfo())) {
-            echo "Massage Reserved, see you then!";
-        }
     }
 }
