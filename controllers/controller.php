@@ -41,13 +41,18 @@ class Controller
     {
         // if a checkout submission was received
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // create a reservation object with the given data
-            $currReservation = new Reservations(
+            // create a massage reservation object with the given data
+            $currReservation = new MassageReservation(
                                     $_POST["firstName"],
                                     $_POST["lastName"],
                                     $_POST["email"],
                                     $_POST["date"],
                                     $_POST["time"]);
+
+            // save selected massage options
+            $currReservation->setMassageType($_POST["massageType"]);
+            $currReservation->setHotStone($_POST["hotStones"]);
+            $currReservation->setIntensity($_POST["massageIntensity"]);
 
             // save reservation object session
             $this->_f3->set("SESSION.currReservation", $currReservation);
@@ -55,6 +60,9 @@ class Controller
             // add reservation to DB
             $ValidateAvailability = new ValidateAvailability();
             $ValidateAvailability->reserveEvent();
+            echo "<pre>";
+            var_dump($currReservation);
+            echo "</pre>";
         }
 
         // set title

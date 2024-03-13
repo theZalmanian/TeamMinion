@@ -94,6 +94,8 @@ class ValidateAvailability
         // execute the query
         $statement->execute();
 
-        var_dump($statement->errorInfo());
+        if(empty($statement->errorInfo())) {
+            echo "Massage Reserved, see you then!";
+        }
     }
 }
