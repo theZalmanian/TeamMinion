@@ -167,8 +167,21 @@ function getAvailability(date)
         // hide the time slots
         document.getElementById("availableTimes").classList.add("d-none");
 
+        // Update .availabilityHeaders to display "Customize"
+
         // display the selected date and time on check out form
+        // pass this to the checkOutForm
         populateCheckOutForm(date, $(this).val());
+
+        /**
+         * Please explain how to encapsulate a form using php
+         */
+
+        // display customizeOrder Form
+
+        // generate onclick for customizeOrder Form
+
+        // ajax call to validate customizeOrder Form
 
         // display the checkout form
         document.getElementById("massageCheckout").classList.remove("d-none");
