@@ -65,7 +65,7 @@ class ValidateAvailability
                 $timeSuffix = $currHour < 12 ? 'am' : 'pm';
 
                 // display a button for that hour
-                echo "<button class='timeSlots' id='{$displayHour}' value='{$currHour}:00:00'>{$displayHour}:00 {$timeSuffix}</button>";
+                echo "<button class='timeSlots btn btn-primary' id='{$displayHour}' value='{$currHour}:00:00'>{$displayHour}:00 {$timeSuffix}</button>";
             }
         }
     }
