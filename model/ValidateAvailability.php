@@ -93,5 +93,7 @@ class ValidateAvailability
 
         // execute the query
         $statement->execute();
+
+        var_dump($statement->errorInfo());
     }
 }

@@ -46,7 +46,6 @@ class Controller
                                     $_POST["firstName"],
                                     $_POST["lastName"],
                                     $_POST["email"],
-                                    $_POST["phone"],
                                     $_POST["date"],
                                     $_POST["time"]);
 
