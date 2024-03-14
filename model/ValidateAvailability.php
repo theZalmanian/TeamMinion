@@ -109,7 +109,10 @@ class ValidateAvailability
 
     function getMassageReservation() {
         // grab current massage reservation from session
-        $currReservation = $_SESSION["currMassageReservation"];
+        $sessionReservation = $_SESSION["currMassageReservation"];
+
+        // clear the object in session
+        $_SESSION["currMassageReservation"] = null;
 
         // setup query
         $query = "SELECT * 
@@ -120,8 +123,8 @@ class ValidateAvailability
         $statement = $this->_dbh->prepare($query);
 
         // bind parameters
-        $statement->bindValue(":currDate", $currReservation->getDate());
-        $statement->bindValue(":currHour", $currReservation->getTime());
+        $statement->bindValue(":currDate", $sessionReservation->getDate());
+        $statement->bindValue(":currHour", $sessionReservation->getTime());
 
         // execute query
         $statement->execute();
@@ -129,10 +132,35 @@ class ValidateAvailability
         // process result
         $currReservation = $statement->fetch(PDO::FETCH_ASSOC);
 
-        // display the returned massage reservation
-        var_dump($currReservation);
+        // setup display for current reservation
+        echo $this->generateConfirmationDisplay($currReservation);
+    }
 
-        // clear the corresponding object from session
-        $_SESSION["currMassageReservation"] = null;
+    /**
+     * Generates and returns a confirmation display for the given reservation
+     * @param MassageReservation $currReservation the Massage reservation that was just made
+     * @return string A div containing a thank you and confirmation message to user, based off the given reservation
+     */
+    function generateConfirmationDisplay($currReservation) {
+        $currDate = date_create($currReservation["massageDate"])->format('D, F jS, Y');
+        $currTime = date_create($currReservation["massageTime"])->format('g:i A');
+        $hotStonesSelected = $currReservation["hotStones"] ? "with Hot Stones." : ".";
+
+        return "<div class='bg-light p-3 border border-3'>
+                    <p class='h5'>
+                        Hi {$currReservation["firstName"]} {$currReservation["lastName"]}, 
+                        thank you for your reservation!
+                    </p>
+                    <br>
+                    <p class='h5'>
+                        You selected a {$currReservation["massageType"]} massage of 
+                        {$currReservation["massageIntensity"]} intensity {$hotStonesSelected}
+                    </p>
+                    <br>
+                    <p class='h5'>We look forward to seeing you on</p>
+                    <p class='h5'>
+                        <i>{$currDate} at {$currTime}</i>
+                    </p>
+                </div>";
     }
 }
