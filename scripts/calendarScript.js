@@ -166,6 +166,16 @@ function getAvailability(date)
     */
     $("#availableTimes").load ( "model/availability.php", { date:date } );
 
+    // // if the time slots div is hidden
+    // if(getByID("availableTimes").classList.contains("d-none")) {
+    //     // display it
+    //     getByID("availableTimes").classList.remove("d-none");
+    //
+    //     // hide the other two forms
+    //     getByID("customizeMassage").classList.add("d-none");
+    //     getByID("massageCheckout").classList.add("d-none");
+    // }
+
     /*
      Event delegation to create onclick for newly created
      timeSlot buttons and call to populateCheckOutForms

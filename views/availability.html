@@ -79,6 +79,12 @@ Description:
                         <div id="availableTimes">
                         </div>
 
+                        <div id="confirmation">
+                            <check if="{{ !empty(@SESSION.currMassageReservation) }}">
+                                {{ @validateAvailability->getMassageReservation() }}
+                            </check>
+                        </div>
+
                         <form action="post" id="customizeMassage" class="d-none">
                             <div class="massage-options my-2">
                                 <div class="form-floating mb-2">

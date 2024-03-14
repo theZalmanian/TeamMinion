@@ -39,6 +39,9 @@ class Controller
      */
     function availability()
     {
+        // create validate availability object in session
+        $this->_f3->set("validateAvailability", new ValidateAvailability());
+
         // if a checkout submission was received
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // create a massage reservation object with the given data
@@ -59,7 +62,7 @@ class Controller
 
             // add reservation to DB
             $ValidateAvailability = new ValidateAvailability();
-            $ValidateAvailability->reserveMassage();
+            $ValidateAvailability->setMassageReservation();
         }
 
         // set title
