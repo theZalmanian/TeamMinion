@@ -79,7 +79,7 @@ class ValidateAvailability
     /**
      * Gets the current massage reservation from session (if exists), and adds it to the DB
      */
-    function reserveMassage() {
+    function setMassageReservation() {
         // grab current massage reservation from session
         $currReservation = $_SESSION["currMassageReservation"];
 
@@ -105,5 +105,34 @@ class ValidateAvailability
             // execute the query
             $statement->execute();
         }
+    }
+
+    function getMassageReservation() {
+        // grab current massage reservation from session
+        $currReservation = $_SESSION["currMassageReservation"];
+
+        // setup query
+        $query = "SELECT * 
+                  FROM massages
+                  WHERE massageDate = :currDate AND massageTime = :currHour";
+
+        // prepare the statement
+        $statement = $this->_dbh->prepare($query);
+
+        // bind parameters
+        $statement->bindValue(":currDate", $currReservation->getDate());
+        $statement->bindValue(":currHour", $currReservation->getTime());
+
+        // execute query
+        $statement->execute();
+
+        // process result
+        $currReservation = $statement->fetch(PDO::FETCH_ASSOC);
+
+        // display the returned massage reservation
+        var_dump($currReservation);
+
+        // clear the corresponding object from session
+        $_SESSION["currMassageReservation"] = null;
     }
 }
