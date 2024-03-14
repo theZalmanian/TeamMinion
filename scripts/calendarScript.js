@@ -220,5 +220,64 @@ function populateCheckOutForm(date, time)
     document.getElementById("time-checkout-display").innerText = time;
 }
 
-calendarButtons();
-getMonth();
+// on page load
+window.addEventListener("load", function() {
+    // display calender
+    calendarButtons();
+    getMonth();
+
+    // setup customize form submission button
+    setupButtonOnClick("customizeMassage-btn", processMassageOptions);
+});
+
+/**
+ * Gets all values from the Massage Options form,
+ * and places them in hidden fields in the Massage Checkout form
+ */
+function processMassageOptions()
+{
+    // grab all values from the checkout options form,
+    // and store them in hidden fields in the next checkout form
+    getByID("massage-type-post").value = getByID("massage-type").value;
+    getByID("massage-intensity-post").value = getByID("massage-intensity").value;
+
+    // get whether user selected hot stones
+    if(getByID("hot-stones-yes").checked) {
+        getByID("hot-stones-post").value = getByID("hot-stones-yes").value;
+    }
+
+    else if(getByID("hot-stones-no").checked) {
+        getByID("hot-stones-post").value = getByID("hot-stones-no").value;
+    }
+
+    // display the next form
+    getByID("massageCheckout").classList.remove("d-none");
+
+    // update the header
+    getByID("resFormHeader").innerText = "Your Info";
+
+    // hide the options form
+    getByID("customizeMassage").classList.add("d-none");
+}
+
+/**
+ * Sets up an onclick event for the given button using the given function
+ * @param {string} buttonID The button's id
+ * @param useFunction The function to be called when button is clicked
+ */
+function setupButtonOnClick(buttonID, useFunction) {
+    // get the button
+    const button = getByID(buttonID);
+
+    // set it's onclick event
+    button.addEventListener("click", useFunction);
+}
+
+/**
+ * Shortened form of the document.getElementById method
+ * @param {string} elementID The element's id
+ * @returns {HTMLElement} The corresponding HTML Element
+ */
+function getByID(elementID) {
+    return document.getElementById(elementID);
+}
