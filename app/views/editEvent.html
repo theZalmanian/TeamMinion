@@ -1,0 +1,83 @@
+<!--
+Author: Toby Goetz, Leeroy Hegwood, Zalman Izak
+Date: 2/9/2024
+Description:
+    Sign In Page that utilizes
+    bootstrap, MVC and Fat-Free.
+    Allows user to submit username and password to sign
+    in to existing account or links to sign Up page where
+    user may make an account.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Event</title>
+    <link rel="icon" type="image/x-icon" href="images/lotus-icon.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/homeStyles.css">
+</head>
+<body>
+
+<header>
+    <include href="app/views/layouts/navigation.html"/>
+</header>
+
+<main>
+
+    <br><br><br>
+
+    <div class="d-flex justify-content-center">
+
+        <form method="post" action="#">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name of Event</label>
+                <input type="text" class="form-control" id="name" name="name" required value="Event Name">
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description of Event</label>
+                <input type="text" class="form-control" id="description" name="description" required>
+            </div>
+            <div class="mb-3">
+                <label for="date" class="form-label">Date of Event</label>
+                <input type="date" class="form-control" id="date" name="date" required>
+            </div>
+            <div class="mb-3">
+                <label for="time" class="form-label">Time of Event</label>
+                <input type="time" class="form-control" id="time" name="time" required>
+            </div>
+            <div class="mb-3">
+                <label for="state" class="form-label">State event is in </label>
+                <input type="text" class="form-control" id="state" name="state" required>
+            </div>
+            <div class="mb-3">
+                <label for="city" class="form-label">City event is in</label>
+                <input type="text" class="form-control" id="city" name="city" required>
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Address of event</label>
+                <textarea class="form-control" id="address" name="address" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="capacity" class="form-label">Capacity of Event (how many can come)</label>
+                <input type="number" class="form-control" id="capacity" name="capacity" required>
+            </div>
+            <input type="hidden" name="UserId" value="{{ @SESSION.user->getUserId() }}">
+            <button href="processEditEvent" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+
+    <br><br><br>
+
+</main>
+
+<footer class="p-3 text-center">
+
+</footer>
+
+</body>
+</html>

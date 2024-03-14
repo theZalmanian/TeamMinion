@@ -20,3 +20,9 @@ body, header, footer {
 main {
     background-color: var(--primary-color-variant);
 }
+
+img{
+    max-width:600px;
+    max-height:400px;
+}
+

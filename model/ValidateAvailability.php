@@ -5,6 +5,8 @@ error_reporting(E_ALL);
 
 // access DB connection constants
 require_once($_SERVER['DOCUMENT_ROOT'] . '/../config.php');
+//require_once($_SERVER['DOCUMENT_ROOT'] . '/TeamMinion/app/model/config.php');
+//require_once($_SERVER['DOCUMENT_ROOT'] . '/TeamMinion/config/config.ini');
 
 /**
  * Contains various methods used to interact with the reservation DB

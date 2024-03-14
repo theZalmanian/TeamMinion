@@ -1,0 +1,47 @@
+<nav class="navbar sticky-top navbar-expand-md p-3">
+    <div class="container">
+        <div class="navbar-brand">
+            Spa-On + HAANG
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-nav"
+                aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse flex-row-reverse" id="navbar-nav">
+            <div class="navbar-nav">
+                <a class="nav-link" href="home">
+                    Home
+                </a>
+
+                {{ isset(@SESSION.user) && @SESSION.user->isAdmin() ? '
+                <a class="nav-link" href="createEvent">
+                    Create Event
+                </a>
+                ' : '' }}
+
+                {{ isset(@SESSION.user) && @SESSION.user->isUser() ? '
+                <a class="nav-link" href="myAccount">
+                    My Account
+                </a>
+                <a class="nav-link" href="signingOut">
+                    Sign Out
+                </a>
+                ' : '' }}
+
+                {{ !isset(@SESSION.user) ? '
+                <a class="nav-link" href="signIn">
+                    Sign In
+                </a>
+                ' : '' }}
+
+                <a class="nav-link" href="viewEvents">
+                    View Events
+                </a>
+
+                <a class="nav-link" href="external">
+                    Availability
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
