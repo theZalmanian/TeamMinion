@@ -79,7 +79,7 @@ Description:
                         <div id="availableTimes">
                         </div>
 
-                        <form method="post" action="#" id="customizeMassage" class="d-none">
+                        <form action="post" id="customizeMassage" class="d-none">
                             <div class="massage-options my-2">
                                 <div class="form-floating mb-2">
                                     <select class="form-select" id="massage-type" name="massageType" aria-label="Massage Type" required>
@@ -92,11 +92,11 @@ Description:
                                 <div class="card text-center mb-2 p-3">
                                     <h6>Would you like Hot Stones with your massage?</h6>
                                     <div class="row justify-content-center">
-                                        <input type="radio" class="btn-check" name="hotStones" id="hotStonesYes" value="true">
-                                        <label class="btn col-3 m-2" for="hotStonesYes">Yes</label>
+                                        <input type="radio" class="btn-check" name="hotStones" id="hot-stones-yes" value="true">
+                                        <label class="btn col-3 m-2" for="hot-stones-yes">Yes</label>
 
-                                        <input type="radio" class="btn-check" name="hotStones" id="hotStonesNo" value="false">
-                                        <label class="btn col-3 m-2" for="hotStonesNo">No</label>
+                                        <input type="radio" class="btn-check" name="hotStones" id="hot-stones-no" value="false">
+                                        <label class="btn col-3 m-2" for="hot-stones-no">No</label>
                                     </div>
                                 </div>
                                 <div class="form-floating mb-2">
@@ -108,7 +108,7 @@ Description:
                                     <label for="massage-intensity">How intense would you like your massage?</label>
                                 </div>
                                 <div>
-                                    <button class="btn btn-primary w-100" type="submit" id="customizeMassage-btn">Go To Check Out</button>
+                                    <input type="button" class="btn btn-primary w-100" id="customizeMassage-btn" value="Got To Check Out">
                                 </div>
                             </div>
 
@@ -151,11 +151,12 @@ Description:
 <!--                            </div>-->
                             <br>
                             <div class="my-2">
-                                <h4>Your Info</h4>
-                                <hr>
                                 <div>
-                                    <input class="form-control" type="text" id="date" name="date" hidden>
-                                    <input class="form-control" type="text" id="time" name="time" hidden>
+                                    <input type="text" id="date" name="date" hidden>
+                                    <input type="text" id="time" name="time" hidden>
+                                    <input type="text" id="massage-type-post" name="massageType" hidden>
+                                    <input type="text" id="hot-stones-post" name="hotStones" hidden>
+                                    <input type="text" id="massage-intensity-post" name="massageIntensity" hidden>
                                 </div>
                                 <div class="form-floating mb-2">
                                     <input type="text" class="form-control" id="first-name" name="firstName"
