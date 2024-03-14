@@ -79,7 +79,8 @@ class ValidateAvailability
     /**
      * Gets the current massage reservation from session (if exists), and adds it to the DB
      */
-    function setMassageReservation() {
+    function setMassageReservation()
+    {
         // grab current massage reservation from session
         $currReservation = $_SESSION["currMassageReservation"];
 
@@ -107,7 +108,12 @@ class ValidateAvailability
         }
     }
 
-    function getMassageReservation() {
+    /**
+     * Checks DB for a massage reservation corresponding to the one in session,
+     * and displays a confirmation to user
+     */
+    function getMassageReservation()
+    {
         // grab current massage reservation from session
         $sessionReservation = $_SESSION["currMassageReservation"];
 
@@ -141,7 +147,8 @@ class ValidateAvailability
      * @param MassageReservation $currReservation the Massage reservation that was just made
      * @return string A div containing a thank you and confirmation message to user, based off the given reservation
      */
-    function generateConfirmationDisplay($currReservation) {
+    function generateConfirmationDisplay($currReservation)
+    {
         $currDate = date_create($currReservation["massageDate"])->format('D, F jS, Y');
         $currTime = date_create($currReservation["massageTime"])->format('g:i A');
         $hotStonesSelected = $currReservation["hotStones"] ? "with Hot Stones." : ".";
