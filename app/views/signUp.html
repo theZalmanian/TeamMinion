@@ -50,8 +50,8 @@ Description:
                     <input type="email" class="form-control" id="email" name="email" required>
                 </div>
                 <div class="mb-3">
-                    <label for="phone" class="form-label">Phone Number</label>
-                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                    <label for="phone" class="form-label">Phone Number (Format: 5553061999)</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" required pattern="[0-9]{10}" maxlength="10">
                 </div>
                 <div class="mb-3">
                     <label for="address" class="form-label">Address</label>

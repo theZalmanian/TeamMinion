@@ -193,6 +193,33 @@ class Controller
     }
 
     /**
+     * Grabs form data, and queries SQL to add event to events table
+     *
+     * @param $f3 FatFree framework
+     */
+    public function processCreateEventForm($f3) {
+        // Get form data
+        $name = $f3->get('POST.name');
+        $description = $f3->get('POST.description');
+        $date = $f3->get('POST.date');
+        $time = $f3->get('POST.time');
+        $state = $f3->get('POST.state');
+        $city = $f3->get('POST.city');
+        $address = $f3->get('POST.address');
+        $capacity = $f3->get('POST.capacity');
+        $OwnerID = $f3->get('POST.UserId');
+        $attending = 0;
+
+        $db = new Database($f3);
+
+        $sql = 'INSERT INTO events (OwnerID, date, time, State, City, Address, name, description, capacity, attending) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        $db->exec($sql, [$OwnerID, $date, $time, $state, $city, $address, $name, $description, $capacity, $attending]);
+
+
+        $f3->reroute('/eventSuccess');
+    }
+
+    /**
      * Renders the myAccount page.
      *
      * @param $f3 FatFree Framework
