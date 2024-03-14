@@ -166,6 +166,9 @@ function getAvailability(date)
     */
     $("#availableTimes").load ( "model/availability.php", { date:date } );
 
+    // hide confirmation form
+    getByID("confirmation").classList.add("d-none");
+
     // // if the time slots div is hidden
     // if(getByID("availableTimes").classList.contains("d-none")) {
     //     // display it
@@ -199,15 +202,6 @@ function getAvailability(date)
          * Please explain how to encapsulate a form using php Question for Future
          * Forms inside forms, forms displayed using php
          */
-
-        // display customizeOrder Form
-
-        // generate onclick for customizeOrder Form
-
-        // ajax call to validate customizeOrder Form
-
-
-
 
         // display the checkout form
         document.getElementById("customizeMassage").classList.remove("d-none");
