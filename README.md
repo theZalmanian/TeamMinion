@@ -18,7 +18,7 @@ Final project for SDEV 328 - a spa reservation site.
 - Database logic and functions are located in `model/`
 
 ### Routes all URLs and leverages a templating language using the Fat-Free framework.
-- Conditionally define routes and render pages using Fat-Free Framework using index.php 
+- Conditionally define routes and render pages using Fat-Free Framework using index.php
 - and app/controller/controllers as well as controllers/controller
 - Utilized templating to dynamically display reservation confirmation and display session variables
 
@@ -43,7 +43,7 @@ Final project for SDEV 328 - a spa reservation site.
 
 ### Contains full DocBlocks for all PHP files and follows PEAR standards.
 - Through continuous code reviews and inspection all PHP files contain DocBlocks and follow PEAR standards
-- Made DocBlocks for each route in app/controllers/controller.php 
+- Made DocBlocks for each route in app/controllers/controller.php
 
 ### Has full validation on the server side through PHP.
 - PHP scripts validate AJAX calls and dynamically render HTML elements
