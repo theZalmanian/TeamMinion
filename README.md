@@ -5,7 +5,7 @@ Final project for SDEV 328 - a spa reservation site.
 ### This project was created and worked on by:
 - **Toby Goetz** - [tobyDevOp](https://github.com/tobyDevOp)
 - **Zalman Izak** - [theZalmanian](https://github.com/theZalmanian/)
-- **LeeRoy Hegwood** - [CombustableLem0n](https://github.com/CombustableLem0n)
+- **Leerory Hegwood** - [CombustableLem0n](https://github.com/CombustableLem0n)
 
 # Requirements
 ### Separates all database/business logic using the MVC pattern.
@@ -18,8 +18,7 @@ Final project for SDEV 328 - a spa reservation site.
 - Database logic and functions are located in `model/`
 
 ### Routes all URLs and leverages a templating language using the Fat-Free framework.
-- Conditionally define routes and render pages using Fat-Free Framework using index.php
-- and app/controller/controllers as well as controllers/controller
+- Conditionally define routes and render pages using Fat-Free Framework
 - Utilized templating to dynamically display reservation confirmation and display session variables
 
 ### Has a clearly defined database layer using PDO and prepared statements.
@@ -38,12 +37,10 @@ Final project for SDEV 328 - a spa reservation site.
 
 ### Uses OOP, and utilizes multiple classes, including at least one inheritance relationship.
 - `Reservation` class is inherited by `MassageReservation` and allows for expansion of various event types
-- 'User' class is inherited by 'Admin' and is used to save user information to session, being stored in session
--  and having values sent to user table in SQL after account creation
+- 'User' class is inherited by 'Admin' and is used to save user information to session, being stored in SQL after account creation
 
 ### Contains full DocBlocks for all PHP files and follows PEAR standards.
 - Through continuous code reviews and inspection all PHP files contain DocBlocks and follow PEAR standards
-- Made DocBlocks for each route in app/controllers/controller.php
 
 ### Has full validation on the server side through PHP.
 - PHP scripts validate AJAX calls and dynamically render HTML elements
@@ -53,12 +50,12 @@ Final project for SDEV 328 - a spa reservation site.
 - Additional comments added for procedural code
 - Functional programming was implemented to reduce redundancy
 - navigation.html used to cut repetitiveness from navbar
-- database.class.php used to csut repetitivenes from controller database calls
+- database.class.php used to cut repetitiveness from controller database calls
 
 ### Your submission shows adequate effort for a final project in a full-stack web development course.
 - Ideas and best practices were adopted from curriculum
 - Features implemented beyond scope of class to add extra challenge to project
-- Site is functional, meets requirements, and has taken a large amount of hours, learning, and effort to complete
+- Site is functional, and has taken a large amount of hours to complete
 
 ### BONUS:  Incorporates Ajax that access data from a JSON file, PHP script, or API. If you implement Ajax, be sure to include how you did so in your readme file.
 - Availability forms utilize AJAX to enhance usability and functionality of the site and
