@@ -5,7 +5,7 @@ Final project for SDEV 328 - a spa reservation site.
 ### This project was created and worked on by:
 - **Toby Goetz** - [tobyDevOp](https://github.com/tobyDevOp)
 - **Zalman Izak** - [theZalmanian](https://github.com/theZalmanian/)
-- **Leerory Hegwood** - [CombustableLem0n](https://github.com/CombustableLem0n)
+- **Leeroy Hegwood** - [CombustableLem0n](https://github.com/CombustableLem0n)
 
 # Requirements
 ### Separates all database/business logic using the MVC pattern.
@@ -26,6 +26,7 @@ Final project for SDEV 328 - a spa reservation site.
 - DB script inside 'scripts/', config.ini located in config directory
 
 ### Data can be added and viewed.
+- Data interpretation is viewable in `ValidateAvailability`
 - Available time slots are dynamically generated depending on existing reservations stored in database
 - Database is updated with each reservation
 - A confirmation is displayed once a reservation is completed by querying database for reservation data
@@ -43,22 +44,22 @@ Final project for SDEV 328 - a spa reservation site.
 - Through continuous code reviews and inspection all PHP files contain DocBlocks and follow PEAR standards
 
 ### Has full validation on the server side through PHP.
-- PHP scripts validate AJAX calls and dynamically render HTML elements
+- PHP scripts validate AJAX calls and dynamically render HTML elements in `calendarScript.js`
 
 ### All code is clean, clear, and well-commented. DRY (Don't Repeat Yourself) is practiced.
 - Variable declaration is descriptive and consistent
 - Additional comments added for procedural code
-- Functional programming was implemented to reduce redundancy
+- Functional programming was implemented to reduce redundancy in `ValidateAvailability` and `Controller.php`
 - navigation.html used to cut repetitiveness from navbar
 - database.class.php used to cut repetitiveness from controller database calls
 
 ### Your submission shows adequate effort for a final project in a full-stack web development course.
-- Ideas and best practices were adopted from curriculum
+- Ideas and best practices were adopted from curriculum `All of it`
 - Features implemented beyond scope of class to add extra challenge to project
 - Site is functional, and has taken a large amount of hours to complete
 
 ### BONUS:  Incorporates Ajax that access data from a JSON file, PHP script, or API. If you implement Ajax, be sure to include how you did so in your readme file.
-- Availability forms utilize AJAX to enhance usability and functionality of the site and
+- Availability forms utilize AJAX to enhance usability and functionality of the site `calendarScripts.js`
 - Form logic was kept to one page without reloading
 
 # UML Diagrams
