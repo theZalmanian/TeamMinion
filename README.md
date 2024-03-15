@@ -5,7 +5,7 @@ Final project for SDEV 328 - a spa reservation site.
 ### This project was created and worked on by:
 - **Toby Goetz** - [tobyDevOp](https://github.com/tobyDevOp)
 - **Zalman Izak** - [theZalmanian](https://github.com/theZalmanian/)
-- **Leeroy Hegwood** - [CombustableLem0n](https://github.com/CombustableLem0n)
+- **LeeRoy Hegwood** - [CombustableLem0n](https://github.com/CombustableLem0n)
 
 # Requirements
 ### Separates all database/business logic using the MVC pattern.
@@ -38,10 +38,12 @@ Final project for SDEV 328 - a spa reservation site.
 
 ### Uses OOP, and utilizes multiple classes, including at least one inheritance relationship.
 - `Reservation` class is inherited by `MassageReservation` and allows for expansion of various event types
-- 'User' class is inherited by 'Admin' and is used to save user information to session, being stored in SQL after account creation
+- 'User' class is inherited by 'Admin' and is used to save user information to session,
+   being stored in SQL after account creation
 
 ### Contains full DocBlocks for all PHP files and follows PEAR standards.
 - Through continuous code reviews and inspection all PHP files contain DocBlocks and follow PEAR standards
+- DocBlocks for each route in app/controllers/controller.php
 
 ### Has full validation on the server side through PHP.
 - PHP scripts validate AJAX calls and dynamically render HTML elements in `calendarScript.js`
@@ -56,7 +58,7 @@ Final project for SDEV 328 - a spa reservation site.
 ### Your submission shows adequate effort for a final project in a full-stack web development course.
 - Ideas and best practices were adopted from curriculum `All of it`
 - Features implemented beyond scope of class to add extra challenge to project
-- Site is functional, and has taken a large amount of hours to complete
+- Site is functional, meets requirements, and has taken a large amount of hours, learning, and effort to complete
 
 ### BONUS:  Incorporates Ajax that access data from a JSON file, PHP script, or API. If you implement Ajax, be sure to include how you did so in your readme file.
 - Availability forms utilize AJAX to enhance usability and functionality of the site `calendarScripts.js`
